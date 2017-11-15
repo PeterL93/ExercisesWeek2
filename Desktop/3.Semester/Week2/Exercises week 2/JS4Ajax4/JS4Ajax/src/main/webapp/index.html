@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h2 id="joke"></h2>
+        <p id="id"></p>
+        <p id="ref"></p>
+        
+        
+        <script>
+            var promise = fetch('https://jokes-plaul.rhcloud.com/api/joke');
+            promise.then(function (response) {
+                return response.json();
+            }).then(function (quote) {
+                document.getElementById("joke").innerText = quote.joke;
+                document.getElementById("id").innerText = quote.id;
+                document.getElementById("ref").innerText = quote.reference;
+            });
+        </script>
+    </body>
+</html>
